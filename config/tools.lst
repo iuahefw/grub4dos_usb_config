@@ -1,0 +1,71 @@
+title Memtest86+ 5.01
+    kernel /img/tools/memtest86.bin
+    pause Remove this disk and press ENTER
+
+title FreeDOS 1.3 RC1
+    map --mem /img/dos/fd13rc1.img (fd0)
+    map (hd0) (hd1)
+    map (hd1) (hd0)
+    map --hook
+    root (fd0)
+    chainloader +1
+    pause Remove this disk and press ENTER
+
+title Windows 98 SE Boot Disk (EN)
+    map --mem /img/dos/en_win98se.img (fd0)
+    map (hd0) (hd1)
+    map (hd1) (hd0)
+    map --hook
+    root (fd0)
+    chainloader +1
+    pause Remove this disk and press ENTER
+
+title Windows XP SP3 (32-bit) (EN) Live CD
+    map /img/tools/Windows-XP-SP3-Live-CD.iso (0xff)
+    map --hook
+    root (0xff)
+    chainloader (0xff)/i386/setupldr.bin || chainloader (0xff)/I386/SETUPLDR.BIN || chainloader (0xff)
+
+title Windows XP SP3 (32-bit) (EN) Live CD (RAM)
+    map --mem /img/tools/Windows-XP-SP3-Live-CD.iso (0xff)
+    map --hook
+    root (0xff)
+    chainloader (0xff)/i386/setupldr.bin || chainloader (0xff)/I386/SETUPLDR.BIN || chainloader (0xff)
+    pause Remove this disk and press ENTER
+
+title Clonezilla 2.6.6-15 (x64)
+    find --set-root /img/tools/clonezilla-live-2.6.6-15-amd64.iso
+    map /img/tools/clonezilla-live-2.6.6-15-amd64.iso (0xff)
+    map --hook
+    root (0xff)
+    kernel /live/vmlinuz boot=live config edd=on components findiso=/img/tools/clonezilla-live-2.6.6-15-amd64.iso ip= net.ifnames=0 nomodeset nosplash noswap toram=. union=overlay username=user i915.blacklist=yes radeonhd.blacklist=yes nouveau.blacklist=yes
+    initrd /live/initrd.img
+
+title Paragon Hard Disk Manager 14
+    map /img/tools/Paragon-Hard-Disk-Manager-14.iso (0xff)
+    map --hook
+    root (0xff)
+    chainloader (0xff)/bootmgr || chainloader (0xff)/BOOTMGR
+
+title Paragon Hard Disk Manager 14 (RAM)
+    map --mem /img/tools/Paragon-Hard-Disk-Manager-14.iso (0xff)
+    map --hook
+    root (0xff)
+    chainloader (0xff)/bootmgr || chainloader (0xff)/BOOTMGR
+    pause Remove this disk and press ENTER
+
+title Wondershare LiveBoot 2012
+    map /img/tools/Wondershare-LiveBoot-2012.iso (0xff)
+    map --hook
+    root (0xff)
+    chainloader (0xff)/bootmgr || chainloader (0xff)/BOOTMGR
+
+title Wondershare LiveBoot 2012 (RAM)
+    map --mem /img/tools/Wondershare-LiveBoot-2012.iso (0xff)
+    map --hook
+    root (0xff)
+    chainloader (0xff)/bootmgr || chainloader (0xff)/BOOTMGR
+    pause Remove this disk and press ENTER
+
+title Back to Previous Menu
+    configfile /menu.lst

@@ -1,0 +1,8 @@
+grldr binary
+*.bin binary
+*.c32 binary
+*.cat binary
+
+*.cfg text eol=lf
+*.lst text eol=lf
+*.txt text eol=lf

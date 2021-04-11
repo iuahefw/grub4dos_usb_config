@@ -1,0 +1,5 @@
+title Linux
+    configfile /config/linux.lst
+
+title Tools
+    configfile /config/tools.lst

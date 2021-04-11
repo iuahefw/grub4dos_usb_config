@@ -1,0 +1,9 @@
+xorriso -as mkisofs \
+   -r -V 'Linux G4D' \
+   -o disc.iso \
+   -J -J -joliet-long -cache-inodes \
+   -isohybrid-mbr cdrom/boot/isolinux/isohdpfx.bin \
+   -b boot/isolinux/isolinux.bin \
+   -c boot/isolinux/boot.cat \
+   -boot-load-size 4 -boot-info-table -no-emul-boot \
+    cdrom
